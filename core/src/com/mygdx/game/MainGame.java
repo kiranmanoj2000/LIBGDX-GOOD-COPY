@@ -8,9 +8,11 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 /**
  * This is a screen. 
@@ -29,6 +31,16 @@ public class MainGame implements Screen{
     // our hero needs a place to be in
     private World world;
     
+    
+    // sprtie batch
+    private SpriteBatch batch;
+    // camera and viewport
+    private OrthographicCamera camera;
+    private Viewport view;
+    
+    // game units
+    private final int HEIGHT = 600;
+    private final int WIDTH  = 800;
     // the constructor for our maingame needs to know what made it
     // this is what the game variable is
     public MainGame(PlatformGame game){
@@ -38,6 +50,12 @@ public class MainGame implements Screen{
         p1 = new Player(100,100);
         // generate the world
         world = new World();
+        // initialize the sprite batch
+        this.batch = game.getBatch();
+        
+        // set up the camera view
+              this.camera= new OrthographicCamera();
+              this.view 
     }
     
     @Override
